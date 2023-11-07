@@ -1,3 +1,7 @@
 ---
 Name: goldfinch-component-blog
 ---
+
+Goldfinch\Component\Blog\Admin\BlogAdmin:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BlocksAdminExtension

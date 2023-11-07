@@ -12,7 +12,13 @@
     "require": {
         "php": ">=8.0",
         "silverstripe/framework": "^5.0",
-        "silverstripe/admin": "^2.0"
+        "silverstripe/admin": "^2.0",
+        "silverstripe/tagfield": "^3.0",
+        "jonom/silverstripe-someconfig": "^1.0",
+        "dnadesign/silverstripe-elemental": "^5.0",
+        "goldfinch/helpers": "dev-master",
+        "goldfinch/focuspoint-extra": "dev-master",
+        "goldfinch/nest": "dev-main"
     },
     "autoload": {
         "psr-4": {
