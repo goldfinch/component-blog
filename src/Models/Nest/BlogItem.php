@@ -2,15 +2,17 @@
 
 namespace Goldfinch\Component\Blog\Models\Nest;
 
-use Goldfinch\Component\Blog\Pages\Nest\Blog;
 use SilverStripe\Assets\Image;
-use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Control\Director;
 use SilverStripe\TagField\TagField;
 use SilverStripe\Forms\DatetimeField;
 use SilverStripe\Forms\TextareaField;
 use Goldfinch\Nest\Models\NestedObject;
+use Goldfinch\Component\Blog\Admin\BlogAdmin;
+use Goldfinch\Component\Blog\Pages\Nest\Blog;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
 use Goldfinch\FocusPointExtra\Forms\UploadFieldWithExtra;
 
 class BlogItem extends NestedObject
@@ -96,6 +98,29 @@ class BlogItem extends NestedObject
         );
 
         return $fields;
+    }
+
+    // TODO: check if SortOrder exists
+    public function nextItem()
+    {
+        return BlogItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
+    }
+
+    // TODO: check if SortOrder exists
+    public function previousItem()
+    {
+        return BlogItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
+    }
+
+    public function OtherItems()
+    {
+        return BlogItem::get()->filter('ID:not', $this->ID)->limit(6);
+    }
+
+    public function CMSEditLink()
+    {
+        $admin = new BlogAdmin;
+        return Director::absoluteBaseURL() . '/' . $admin->getCMSEditLinkForManagedDataObject($this);
     }
 
     // public function validate()
