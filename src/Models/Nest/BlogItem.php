@@ -100,19 +100,17 @@ class BlogItem extends NestedObject
         return $fields;
     }
 
-    // TODO: check if SortOrder exists
-    public function nextItem()
+    public function getNextItem()
     {
-        return BlogItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
+        return BlogItem::get()->filter(['Date:LessThan' => $this->Date])->Sort('Date DESC')->first();
     }
 
-    // TODO: check if SortOrder exists
-    public function previousItem()
+    public function getPreviousItem()
     {
-        return BlogItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
+        return BlogItem::get()->filter(['Date:GreaterThan' => $this->Date])->first();
     }
 
-    public function OtherItems()
+    public function getOtherItems()
     {
         return BlogItem::get()->filter('ID:not', $this->ID)->limit(6);
     }
