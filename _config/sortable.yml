@@ -1,0 +1,11 @@
+---
+Name: goldfinch-component-blog-sortable
+---
+
+Goldfinch\Component\Blog\Models\Nest\BlogCategory:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSortable
+
+Goldfinch\Component\Blog\Models\Nest\BlogTag:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSortable
