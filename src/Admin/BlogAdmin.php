@@ -5,6 +5,7 @@ namespace Goldfinch\Component\Blog\Admin;
 use Goldfinch\Component\Blog\Models\Nest\BlogItem;
 use Goldfinch\Component\Blog\Blocks\BlogBlock;
 use Goldfinch\Component\Blog\Configs\BlogConfig;
+use Goldfinch\Component\Blog\Models\Nest\BlogTag;
 use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
 use SilverStripe\Admin\ModelAdmin;
 use JonoM\SomeConfig\SomeConfigAdmin;
@@ -25,6 +26,9 @@ class BlogAdmin extends ModelAdmin
         ],
         BlogCategory::class => [
             'title'=> 'Categories',
+        ],
+        BlogTag::class => [
+            'title'=> 'Tags',
         ],
         BlogBlock::class => [
             'title'=> 'Blocks',

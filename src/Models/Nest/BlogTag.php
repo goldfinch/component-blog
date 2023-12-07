@@ -1,37 +1,33 @@
 <?php
 
-namespace Goldfinch\Component\Blog\Blocks;
+namespace Goldfinch\Component\Blog\Models\Nest;
 
 use Goldfinch\Component\Blog\Models\Nest\BlogItem;
-use Goldfinch\Component\Blog\Models\Nest\BlogTag;
-use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
-use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\Forms\TextField;
+use Goldfinch\Nest\Models\NestedObject;
 
-class BlogBlock extends BaseElement
+class BlogTag extends NestedObject
 {
-    private static $table_name = 'BlogBlock';
-    private static $singular_name = 'Blog';
-    private static $plural_name = 'Blog';
+    public static $nest_up = null;
+    public static $nest_up_children = [];
+    public static $nest_down = null;
+    public static $nest_down_parents = [];
 
-    private static $db = [
-        // 'BlockTitle' => 'Varchar',
-        // 'BlockSubTitle' => 'Varchar',
-        // 'BlockText' => 'HTMLText',
+    private static $table_name = 'BlogTag';
+    private static $singular_name = 'tag';
+    private static $plural_name = 'tags';
+
+    private static $db = [];
+
+    private static $belongs_many_many = [
+        'Items' => BlogItem::class,
     ];
-
-    private static $inline_editable = false;
-    private static $description = '';
-    private static $icon = 'bi-newspaper';
-    // private static $disable_pretty_anchor_name = false;
-    // private static $displays_title_in_template = true;
 
     // private static $has_one = [];
     // private static $belongs_to = [];
     // private static $has_many = [];
     // private static $many_many = [];
     // private static $many_many_extraFields = [];
-    // private static $belongs_many_many = [];
-
     // private static $default_sort = null;
     // private static $indexes = null;
     // private static $owns = [];
@@ -47,42 +43,22 @@ class BlogBlock extends BaseElement
 
     // * goldfinch/helpers
     // private static $field_descriptions = [];
-    // private static $required_fields = [];
-
-    public function Items()
-    {
-        return BlogItem::get();
-    }
-
-    public function Categories()
-    {
-        return BlogCategory::get();
-    }
-
-    public function Tags()
-    {
-        return BlogTag::get();
-    }
+    private static $required_fields = [
+        'Title',
+    ];
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
 
-        // ..
+        $fields->addFieldsToTab(
+            'Root.Main',
+            [
+                TextField::create('Title', 'Title'),
+            ]
+        );
 
         return $fields;
-    }
-
-    public function getSummary()
-    {
-        return $this->getDescription();
-    }
-
-    public function getType()
-    {
-        $default = $this->i18n_singular_name() ?: 'Block';
-
-        return _t(__CLASS__ . '.BlockType', $default);
     }
 
     // public function validate()

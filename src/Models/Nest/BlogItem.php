@@ -13,6 +13,7 @@ use Goldfinch\Component\Blog\Admin\BlogAdmin;
 use Goldfinch\Component\Blog\Pages\Nest\Blog;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
+use Goldfinch\Component\Blog\Models\Nest\BlogTag;
 use Goldfinch\FocusPointExtra\Forms\UploadFieldWithExtra;
 
 class BlogItem extends NestedObject
@@ -35,9 +36,13 @@ class BlogItem extends NestedObject
 
     private static $many_many = [
         'Categories' => BlogCategory::class,
+        'Tags' => BlogTag::class,
     ];
     private static $many_many_extraFields = [
         'Categories' => [
+            'SortOrder' => 'Int',
+        ],
+        'Tags' => [
             'SortOrder' => 'Int',
         ],
     ];
@@ -49,6 +54,7 @@ class BlogItem extends NestedObject
     private static $owns = [
         'Image',
         'Categories',
+        'Tags',
     ];
 
     private static $summary_fields = [
@@ -92,7 +98,8 @@ class BlogItem extends NestedObject
                     HTMLEditorField::create('Text', 'Text'),
                     DatetimeField::create('Date', 'Date'),
                     TextField::create('Author', 'Author'),
-                    TagField::create('Categories', 'Categories', BlogCategory::get())
+                    TagField::create('Categories', 'Categories', BlogCategory::get()),
+                    TagField::create('Tags', 'Tags', BlogTag::get())
                 ],
             ]
         );

@@ -19,6 +19,17 @@
                     </select>
                 </div>
                 <% end_if %>
+
+                <% if Tags %>
+                  <div class="mb-3">
+                      <select class="form-select" aria-label="Blog Tags">
+                          <option selected>-</option>
+                          <% loop Tags %>
+                          <option value="$ID">$Title</option>
+                          <% end_loop %>
+                      </select>
+                  </div>
+                  <% end_if %>
             </form>
 
             <div class="accordion" id="blogblock-{$Top.ID}">
