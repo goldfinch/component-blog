@@ -17,7 +17,7 @@ class BlogAdmin extends ModelAdmin
 
     private static $url_segment = 'blog';
     private static $menu_title = 'Blog';
-    private static $menu_icon_class = 'bi-newspaper';
+    private static $menu_icon_class = 'font-icon-news';
     // private static $menu_priority = -0.5;
 
     private static $managed_models = [

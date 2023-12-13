@@ -10,5 +10,5 @@ class Blog extends Nest
     private static $table_name = 'Blog';
     private static $controller_name = BlogController::class;
 
-    private static $icon_class = 'bi-newspaper';
+    private static $icon_class = 'font-icon-news';
 }

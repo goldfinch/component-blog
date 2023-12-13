@@ -21,7 +21,7 @@ class BlogBlock extends BaseElement
 
     private static $inline_editable = false;
     private static $description = '';
-    private static $icon = 'bi-newspaper';
+    private static $icon = 'font-icon-news';
     // private static $disable_pretty_anchor_name = false;
     // private static $displays_title_in_template = true;
 
