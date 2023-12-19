@@ -104,6 +104,8 @@ class BlogItem extends NestedObject
             ]
         );
 
+        $fields->dataFieldByName('Image')->setFolderName('blog');
+
         return $fields;
     }
 
