@@ -14,7 +14,7 @@
         "silverstripe/framework": "^5.0",
         "silverstripe/admin": "^2.0",
         "goldfinch/helpers": "^1.0",
-        "goldfinch/focuspoint-extra": "^1.0",
+        "goldfinch/image-editor": "^1.0",
         "goldfinch/nest": "^1.0",
         "silverstripe/tagfield": "^3.0",
         "jonom/silverstripe-someconfig": "^1.0",

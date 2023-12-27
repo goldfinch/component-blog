@@ -14,7 +14,7 @@ use Goldfinch\Component\Blog\Pages\Nest\Blog;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
 use Goldfinch\Component\Blog\Models\Nest\BlogTag;
-use Goldfinch\FocusPointExtra\Forms\UploadFieldWithExtra;
+use Goldfinch\ImageEditor\Forms\EditableUploadField;
 
 class BlogItem extends NestedObject
 {
@@ -91,7 +91,7 @@ class BlogItem extends NestedObject
         $fields->addFieldsToTab(
             'Root.Main',
             [
-                ...UploadFieldWithExtra::create('Image', 'Image', $fields, $this)->getFields(),
+                ...EditableUploadField::create('Image', 'Image', $fields, $this)->getFields(),
                 ...[
                     TextField::create('Title', 'Title'),
                     TextareaField::create('Summary', 'Summary'),
