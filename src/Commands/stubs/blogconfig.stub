@@ -1,0 +1,23 @@
+---
+Name: app-{{ class }}
+After: "goldfinch/component-blog"
+---
+Goldfinch\Component\Blog\Models\Nest\BlogItem:
+  extensions:
+    - {{ namespace }}\BlogItemExtension
+
+Goldfinch\Component\Blog\Models\Nest\BlogCategory:
+  extensions:
+    - {{ namespace }}\BlogCategoryExtension
+
+Goldfinch\Component\Blog\Models\Nest\BlogTag:
+  extensions:
+    - {{ namespace }}\BlogTagExtension
+
+Goldfinch\Component\Blog\Configs\BlogConfig:
+  extensions:
+    - {{ namespace }}\BlogConfigExtension
+
+Goldfinch\Component\Blog\Blocks\BlogBlock:
+  extensions:
+    - {{ namespace }}\BlogBlockExtension

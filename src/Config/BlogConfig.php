@@ -2,37 +2,22 @@
 
 namespace Goldfinch\Component\Blog\Configs;
 
+use Goldfinch\Harvest\Harvest;
 use JonoM\SomeConfig\SomeConfig;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Forms\CompositeField;
+use Goldfinch\Harvest\Traits\HarvestTrait;
 use SilverStripe\View\TemplateGlobalProvider;
 
 class BlogConfig extends DataObject implements TemplateGlobalProvider
 {
-    use SomeConfig;
+    use SomeConfig, HarvestTrait;
 
     private static $table_name = 'BlogConfig';
 
     private static $db = [];
 
-    private static $field_descriptions = [];
-
-    public function getCMSFields()
+    public function harvest(Harvest $harvest)
     {
-        $fields = parent::getCMSFields();
-
-        // $fields->removeByName(['']);
-
-        $fields->addFieldsToTab('Root.Main', [
-
-            CompositeField::create(
-
-                // ..
-
-            ),
-
-        ]);
-
-        return $fields;
+        // ..
     }
 }
