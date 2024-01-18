@@ -57,12 +57,12 @@ class ComponentBlogTemplatesCommand extends GeneratorCommand
         if (isset($theme) && $theme) {
             $this->copyTemplates($theme);
 
-            $io->text('Done');
+            $io->right('The [component-blog] templates have been created');
 
             return Command::SUCCESS;
         }
 
-        return Command::FAILURE;
+        $io->wrong('The [component-blog] templates creation failed');
     }
 
     private function copyTemplates($theme)
