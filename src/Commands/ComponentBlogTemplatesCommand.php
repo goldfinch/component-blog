@@ -9,10 +9,10 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 
-#[AsCommand(name: 'templates:component-blog')]
+#[AsCommand(name: 'vendor:component-blog:templates')]
 class ComponentBlogTemplatesCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'templates:component-blog';
+    protected static $defaultName = 'vendor:component-blog:templates';
 
     protected $description = 'Publish component-blog templates into your theme folder';
 

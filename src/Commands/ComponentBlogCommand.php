@@ -16,34 +16,34 @@ class ComponentBlogCommand extends GeneratorCommand
     protected function execute($input, $output): int
     {
         $command = $this->getApplication()->find(
-            'vendor:component-blog-blogitem',
+            'vendor:component-blog:blogitem',
         );
         $input = new ArrayInput(['name' => 'BlogItem']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-blog-blogcategory',
+            'vendor:component-blog:blogcategory',
         );
         $input = new ArrayInput(['name' => 'BlogCategory']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-blog-blogconfig',
+            'vendor:component-blog:blogconfig',
         );
         $input = new ArrayInput(['name' => 'BlogConfig']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-blog-blogblock',
+            'vendor:component-blog:blogblock',
         );
         $input = new ArrayInput(['name' => 'BlogBlock']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('templates:component-blog');
+        $command = $this->getApplication()->find('vendor:component-blog:templates');
         $input = new ArrayInput([]);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('config:component-blog');
+        $command = $this->getApplication()->find('vendor:component-blog:config');
         $input = new ArrayInput(['name' => 'component-blog']);
         $command->run($input, $output);
 
