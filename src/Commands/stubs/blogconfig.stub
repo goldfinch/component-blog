@@ -4,20 +4,20 @@ After: "goldfinch/component-blog"
 ---
 Goldfinch\Component\Blog\Models\Nest\BlogItem:
   extensions:
-    - {{ namespace_root }}BlogItemExtension
+    - {{ namespace_root_extensions }}BlogItemExtension
 
 Goldfinch\Component\Blog\Models\Nest\BlogCategory:
   extensions:
-    - {{ namespace_root }}BlogCategoryExtension
+    - {{ namespace_root_extensions }}BlogCategoryExtension
 
 Goldfinch\Component\Blog\Models\Nest\BlogTag:
   extensions:
-    - {{ namespace_root }}BlogTagExtension
+    - {{ namespace_root_extensions }}BlogTagExtension
 
 Goldfinch\Component\Blog\Configs\BlogConfig:
   extensions:
-    - {{ namespace_root }}BlogConfigExtension
+    - {{ namespace_root_extensions }}BlogConfigExtension
 
 Goldfinch\Component\Blog\Blocks\BlogBlock:
   extensions:
-    - {{ namespace_root }}BlogBlockExtension
+    - {{ namespace_root_extensions }}BlogBlockExtension
