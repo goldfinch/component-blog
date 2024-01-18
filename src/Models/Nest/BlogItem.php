@@ -6,6 +6,7 @@ use Goldfinch\Harvest\Harvest;
 use SilverStripe\Assets\Image;
 use SilverStripe\Control\Director;
 use Goldfinch\Nest\Models\NestedObject;
+use Goldfinch\Harvest\Traits\HarvestTrait;
 use Goldfinch\Component\Blog\Admin\BlogAdmin;
 use Goldfinch\Component\Blog\Pages\Nest\Blog;
 
