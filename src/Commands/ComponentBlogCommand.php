@@ -28,6 +28,12 @@ class ComponentBlogCommand extends GeneratorCommand
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
+            'vendor:component-blog:blogtag',
+        );
+        $input = new ArrayInput(['name' => 'BlogTag']);
+        $command->run($input, $output);
+
+        $command = $this->getApplication()->find(
             'vendor:component-blog:blogconfig',
         );
         $input = new ArrayInput(['name' => 'BlogConfig']);

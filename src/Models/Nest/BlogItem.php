@@ -62,7 +62,7 @@ class BlogItem extends NestedObject
             'Root.Main' => [
                 ...$harvest->media('Image'),
                 $harvest->string('Title'),
-                $harvest->textarea('Summary'),
+                $harvest->text('Summary'),
                 $harvest->html('Text'),
                 $harvest->datetime('Date'),
                 $harvest->string('Author'),
