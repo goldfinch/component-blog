@@ -47,11 +47,7 @@ class BlogItem extends NestedObject
         'Image' => Image::class,
     ];
 
-    private static $owns = [
-        'Image',
-        'Categories',
-        'Tags',
-    ];
+    private static $owns = ['Image', 'Categories', 'Tags'];
 
     private static $summary_fields = [
         'Image.CMSThumbnail' => 'Image',
@@ -79,22 +75,31 @@ class BlogItem extends NestedObject
 
     public function getNextItem()
     {
-        return BlogItem::get()->filter(['Date:LessThan' => $this->Date])->Sort('Date DESC')->first();
+        return BlogItem::get()
+            ->filter(['Date:LessThan' => $this->Date])
+            ->Sort('Date DESC')
+            ->first();
     }
 
     public function getPreviousItem()
     {
-        return BlogItem::get()->filter(['Date:GreaterThan' => $this->Date])->first();
+        return BlogItem::get()
+            ->filter(['Date:GreaterThan' => $this->Date])
+            ->first();
     }
 
     public function getOtherItems()
     {
-        return BlogItem::get()->filter('ID:not', $this->ID)->limit(6);
+        return BlogItem::get()
+            ->filter('ID:not', $this->ID)
+            ->limit(6);
     }
 
     public function CMSEditLink()
     {
-        $admin = new BlogAdmin;
-        return Director::absoluteBaseURL() . '/' . $admin->getCMSEditLinkForManagedDataObject($this);
+        $admin = new BlogAdmin();
+        return Director::absoluteBaseURL() .
+            '/' .
+            $admin->getCMSEditLinkForManagedDataObject($this);
     }
 }

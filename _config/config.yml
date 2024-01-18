@@ -1,22 +1,19 @@
 ---
 Name: goldfinch-component-blog
 ---
-
 Goldfinch\Component\Blog\Admin\BlogAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
-
 ---
 Name: goldfinch-component-blog-icon
 Only:
-  moduleexists: 'goldfinch/enchantment'
+  moduleexists: "goldfinch/enchantment"
 ---
-
 Goldfinch\Component\Blog\Admin\BlogAdmin:
-  menu_icon_class: 'bi-newspaper'
+  menu_icon_class: "bi-newspaper"
 
 Goldfinch\Component\Blog\Pages\Nest\Blog:
-  icon_class: 'bi-newspaper'
+  icon_class: "bi-newspaper"
 
 Goldfinch\Component\Blog\Blocks\BlogBlock:
-  icon: 'bi-newspaper'
+  icon: "bi-newspaper"

@@ -39,9 +39,7 @@ class ComponentBlogCommand extends GeneratorCommand
         $input = new ArrayInput(['name' => 'BlogBlock']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find(
-            'templates:component-blog',
-        );
+        $command = $this->getApplication()->find('templates:component-blog');
         $input = new ArrayInput([]);
         $command->run($input, $output);
 

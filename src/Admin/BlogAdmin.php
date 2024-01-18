@@ -21,19 +21,19 @@ class BlogAdmin extends ModelAdmin
 
     private static $managed_models = [
         BlogItem::class => [
-            'title'=> 'Articles',
+            'title' => 'Articles',
         ],
         BlogCategory::class => [
-            'title'=> 'Categories',
+            'title' => 'Categories',
         ],
         BlogTag::class => [
-            'title'=> 'Tags',
+            'title' => 'Tags',
         ],
         BlogBlock::class => [
-            'title'=> 'Blocks',
+            'title' => 'Blocks',
         ],
         BlogConfig::class => [
-            'title'=> 'Settings',
+            'title' => 'Settings',
         ],
     ];
 }
