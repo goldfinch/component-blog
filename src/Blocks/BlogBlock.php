@@ -17,17 +17,13 @@ class BlogBlock extends BaseElement
     private static $singular_name = 'Blog';
     private static $plural_name = 'Blog';
 
-    private static $db = [
-        // 'BlockTitle' => 'Varchar',
-        // 'BlockSubTitle' => 'Varchar',
-        // 'BlockText' => 'HTMLText',
-    ];
+    private static $db = [];
 
     private static $inline_editable = false;
     private static $description = '';
     private static $icon = 'font-icon-news';
 
-    public function harvest(Harvest $harvest)
+    public function harvest(Harvest $harvest): void
     {
         // ..
     }

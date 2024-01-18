@@ -18,8 +18,6 @@ class ComponentBlogTemplatesCommand extends GeneratorCommand
 
     protected function execute($input, $output): int
     {
-        // parent::execute($input, $output);
-
         $io = new InputOutput($input, $output);
 
         $themes = Finder::create()
@@ -63,6 +61,8 @@ class ComponentBlogTemplatesCommand extends GeneratorCommand
 
             return Command::SUCCESS;
         }
+
+        return Command::FAILURE;
     }
 
     private function copyTemplates($theme)
@@ -75,7 +75,7 @@ class ComponentBlogTemplatesCommand extends GeneratorCommand
             'themes/' .
                 $theme .
                 '/templates/Goldfinch/Component/Blog/Blocks/BlogBlock.ss',
-        ); // , true);
+        );
 
         $fs->copy(
             BASE_PATH .
@@ -83,7 +83,7 @@ class ComponentBlogTemplatesCommand extends GeneratorCommand
             'themes/' .
                 $theme .
                 '/templates/Goldfinch/Component/Blog/Models/Nest/BlogItem.ss',
-        ); // , true);
+        );
 
         $fs->copy(
             BASE_PATH .
@@ -91,6 +91,6 @@ class ComponentBlogTemplatesCommand extends GeneratorCommand
             'themes/' .
                 $theme .
                 '/templates/Goldfinch/Component/Blog/Pages/Nest/Blog.ss',
-        ); // , true);
+        );
     }
 }
