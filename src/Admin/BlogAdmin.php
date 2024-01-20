@@ -36,4 +36,29 @@ class BlogAdmin extends ModelAdmin
             'title' => 'Settings',
         ],
     ];
+
+    public function getManagedModels()
+    {
+        $models = parent::getManagedModels();
+
+        $cfg = BlogConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            unset($models[BlogCategory::class]);
+        }
+
+        if ($cfg->DisabledTags) {
+            unset($models[BlogTag::class]);
+        }
+
+        if (!class_exists('DNADesign\Elemental\Models\BaseElement')) {
+            unset($models[BlogBlock::class]);
+        }
+
+        if (empty($cfg->config('db')->db)) {
+            unset($models[BlogConfig::class]);
+        }
+
+        return $models;
+    }
 }

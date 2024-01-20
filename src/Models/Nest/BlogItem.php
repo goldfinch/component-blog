@@ -9,6 +9,7 @@ use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Harvest\Traits\HarvestTrait;
 use Goldfinch\Component\Blog\Admin\BlogAdmin;
 use Goldfinch\Component\Blog\Pages\Nest\Blog;
+use Goldfinch\Component\Blog\Configs\BlogConfig;
 
 class BlogItem extends NestedObject
 {
@@ -72,6 +73,16 @@ class BlogItem extends NestedObject
         ]);
 
         $harvest->dataField('Image')->setFolderName('blog');
+
+        $cfg = BlogConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            $harvest->remove('Categories');
+        }
+
+        if ($cfg->DisabledTags) {
+            $harvest->remove('Tags');
+        }
     }
 
     public function getNextItem()
