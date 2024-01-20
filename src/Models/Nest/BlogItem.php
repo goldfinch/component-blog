@@ -61,14 +61,14 @@ class BlogItem extends NestedObject
 
         $harvest->fields([
             'Root.Main' => [
-                ...$harvest->media('Image'),
                 $harvest->string('Title'),
+                $harvest->datetime('Date', 'Date', $this->Date ?? date('Y-m-d H:i:s')),
+                $harvest->string('Author'),
                 $harvest->text('Summary'),
                 $harvest->html('Text'),
-                $harvest->datetime('Date'),
-                $harvest->string('Author'),
                 $harvest->tag('Categories'),
                 $harvest->tag('Tags'),
+                ...$harvest->media('Image'),
             ],
         ]);
 

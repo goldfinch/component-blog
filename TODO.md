@@ -1,4 +1,8 @@
+
 TODO
+
+- tag urls (and filter?)
+- category urls (and filter?)
 
 ```
   silverstripers/amp
