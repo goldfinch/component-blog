@@ -1,8 +1,11 @@
 
 TODO
 
+this and other components:
 - tag urls (and filter?)
 - category urls (and filter?)
+- check preview button (item/tag/category)
+
 
 ```
   silverstripers/amp
