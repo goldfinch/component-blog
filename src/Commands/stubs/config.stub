@@ -1,0 +1,38 @@
+---
+Name: app-{{ class }}
+After: "goldfinch/component-blog"
+---
+Goldfinch\Component\Blog\Admin\BlogAdmin:
+  # menu_icon_class: ""
+  extensions:
+    - {{ namespace_root_extensions }}BlogAdminExtension
+
+Goldfinch\Component\Blog\Pages\Nest\Blog:
+  # icon_class: ""
+  extensions:
+    - {{ namespace_root_extensions }}BlogExtension
+
+Goldfinch\Component\Blog\Controllers\Nest\BlogController:
+  extensions:
+    - {{ namespace_root_extensions }}BlogControllerExtension
+
+Goldfinch\Component\Blog\Configs\BlogConfig:
+  extensions:
+    - {{ namespace_root_extensions }}BlogConfigExtension
+
+Goldfinch\Component\Blog\Blocks\BlogBlock:
+  # icon: ""
+  extensions:
+    - {{ namespace_root_extensions }}BlogBlockExtension
+
+Goldfinch\Component\Blog\Models\Nest\BlogItem:
+  extensions:
+    - {{ namespace_root_extensions }}BlogItemExtension
+
+Goldfinch\Component\Blog\Models\Nest\BlogCategory:
+  extensions:
+    - {{ namespace_root_extensions }}BlogCategoryExtension
+
+Goldfinch\Component\Blog\Models\Nest\BlogTag:
+  extensions:
+    - {{ namespace_root_extensions }}BlogTagExtension

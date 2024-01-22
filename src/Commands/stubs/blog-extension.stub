@@ -1,0 +1,21 @@
+<?php
+{{ namespace }}
+use Goldfinch\Harvest\Harvest;
+use SilverStripe\Core\Extension;
+
+class {{ class }}Extension extends Extension
+{
+    private static $allowed_children = [];
+
+    private static $db = [];
+
+    public function updateHarvest(Harvest $harvest): void
+    {
+        // ..
+    }
+
+    public function updateHarvestSettings(Harvest $harvest): void
+    {
+        // ..
+    }
+}

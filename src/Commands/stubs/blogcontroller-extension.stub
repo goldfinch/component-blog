@@ -1,0 +1,20 @@
+<?php
+{{ namespace }}
+use SilverStripe\Core\Extension;
+
+class {{ class }}Extension extends Extension
+{
+    private static $url_handlers = [];
+
+    private static $allowed_actions = [];
+
+    public function onBeforeInit()
+    {
+        // ..
+    }
+
+    public function onAfterInit()
+    {
+        // ..
+    }
+}

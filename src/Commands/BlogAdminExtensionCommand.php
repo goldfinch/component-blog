@@ -5,18 +5,18 @@ namespace Goldfinch\Component\Blog\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'vendor:component-blog:ext:block')]
-class BlogBlockExtensionCommand extends GeneratorCommand
+#[AsCommand(name: 'vendor:component-blog:ext:admin')]
+class BlogAdminExtensionCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'vendor:component-blog:ext:block';
+    protected static $defaultName = 'vendor:component-blog:ext:admin';
 
-    protected $description = 'Create BlogBlock extension';
+    protected $description = 'Create BlogAdmin extension';
 
     protected $path = '[psr4]/Extensions';
 
     protected $type = 'extension';
 
-    protected $stub = './stubs/blogblock-extension.stub';
+    protected $stub = './stubs/blogadmin-extension.stub';
 
     protected $prefix = 'Extension';
 
