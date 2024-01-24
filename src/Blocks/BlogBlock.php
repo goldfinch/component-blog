@@ -2,8 +2,8 @@
 
 namespace Goldfinch\Component\Blog\Blocks;
 
-use Goldfinch\Harvest\Harvest;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Fielder;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\Blog\Models\Nest\BlogTag;
 use Goldfinch\Component\Blog\Models\Nest\BlogItem;
@@ -11,7 +11,7 @@ use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
 
 class BlogBlock extends BaseElement
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     private static $table_name = 'BlogBlock';
     private static $singular_name = 'Blog';
@@ -23,7 +23,7 @@ class BlogBlock extends BaseElement
     private static $description = '';
     private static $icon = 'font-icon-news';
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
         // ..
     }

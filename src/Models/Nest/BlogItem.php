@@ -2,18 +2,18 @@
 
 namespace Goldfinch\Component\Blog\Models\Nest;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use SilverStripe\Assets\Image;
 use SilverStripe\Control\Director;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Blog\Admin\BlogAdmin;
 use Goldfinch\Component\Blog\Pages\Nest\Blog;
 use Goldfinch\Component\Blog\Configs\BlogConfig;
 
 class BlogItem extends NestedObject
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -55,33 +55,33 @@ class BlogItem extends NestedObject
         'Image.CMSThumbnail' => 'Image',
     ];
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
-        $harvest->require(['Title']);
+        $fielder->require(['Title']);
 
-        $harvest->fields([
+        $fielder->fields([
             'Root.Main' => [
-                $harvest->string('Title'),
-                $harvest->datetime('Date', 'Date', $this->Date ?? date('Y-m-d H:i:s')),
-                $harvest->string('Author'),
-                $harvest->text('Summary'),
-                $harvest->html('Text'),
-                $harvest->tag('Categories'),
-                $harvest->tag('Tags'),
-                ...$harvest->media('Image'),
+                $fielder->string('Title'),
+                $fielder->datetime('Date', 'Date', $this->Date ?? date('Y-m-d H:i:s')),
+                $fielder->string('Author'),
+                $fielder->text('Summary'),
+                $fielder->html('Text'),
+                $fielder->tag('Categories'),
+                $fielder->tag('Tags'),
+                ...$fielder->media('Image'),
             ],
         ]);
 
-        $harvest->dataField('Image')->setFolderName('blog');
+        $fielder->dataField('Image')->setFolderName('blog');
 
         $cfg = BlogConfig::current_config();
 
         if ($cfg->DisabledCategories) {
-            $harvest->remove('Categories');
+            $fielder->remove('Categories');
         }
 
         if ($cfg->DisabledTags) {
-            $harvest->remove('Tags');
+            $fielder->remove('Tags');
         }
     }
 

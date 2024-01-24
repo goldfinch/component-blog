@@ -1,6 +1,6 @@
 <?php
 {{ namespace }}
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use SilverStripe\Core\Extension;
 
 class {{ class }}Extension extends Extension
@@ -9,12 +9,12 @@ class {{ class }}Extension extends Extension
 
     private static $db = [];
 
-    public function updateHarvest(Harvest $harvest): void
+    public function updateFielder(Fielder $fielder): void
     {
         // ..
     }
 
-    public function updateHarvestSettings(Harvest $harvest): void
+    public function updateFielderSettings(Fielder $fielder): void
     {
         // ..
     }

@@ -2,14 +2,14 @@
 
 namespace Goldfinch\Component\Blog\Pages\Nest;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Pages\Nest;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Blog\Controllers\Nest\BlogController;
 
 class Blog extends Nest
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     private static $table_name = 'Blog';
 
@@ -17,12 +17,12 @@ class Blog extends Nest
 
     private static $icon_class = 'font-icon-news';
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
         // ..
     }
 
-    public function harvestSettings(Harvest $harvest): void
+    public function fielderSettings(Fielder $fielder): void
     {
         // ..
     }

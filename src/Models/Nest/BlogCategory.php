@@ -2,13 +2,13 @@
 
 namespace Goldfinch\Component\Blog\Models\Nest;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 
 class BlogCategory extends NestedObject
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -28,12 +28,12 @@ class BlogCategory extends NestedObject
         'Items' => BlogItem::class,
     ];
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
-        $harvest->require(['Title']);
+        $fielder->require(['Title']);
 
-        $harvest->fields([
-            'Root.Main' => [$harvest->string('Title')],
+        $fielder->fields([
+            'Root.Main' => [$fielder->string('Title')],
         ]);
     }
 }
