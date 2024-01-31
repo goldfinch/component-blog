@@ -1,6 +1,6 @@
 <form method="GET" id="myform" style="display: block; margin-bottom: 70px">
   <div style="margin-bottom: 10px">
-    <input type="text" class="text" name="search" placeholder="Search" value="{$paramGet(search)}">
+    <input type="text" class="text" name="search" minlength="3" placeholder="Search" value="{$paramGet(search)}">
   </div>
   <% if Categories %>
     <div>
