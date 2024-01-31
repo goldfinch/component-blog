@@ -12,7 +12,7 @@ class BlogItemMill extends Mill
             'Title' => $this->faker->sentence(),
             'Summary' => $this->faker->sentence(2),
             'Content' => $this->faker->paragraph(10),
-            'Date' => $faker->dateTimeBetween('-4 week', '+4 week')->format('Y-m-d H:i:s'),
+            'Date' => $this->faker->dateTimeBetween('-4 week', '+4 week')->format('Y-m-d H:i:s'),
             'Author' => $this->faker->name(),
         ];
     }
