@@ -13,6 +13,9 @@ Goldfinch\Component\Blog\Pages\Nest\Blog:
   extensions:
     - {{ namespace_root_extensions }}BlogExtension
 
+Goldfinch\Component\Blog\Pages\Nest\BlogByCategory:
+  # icon_class: ""
+
 Goldfinch\Component\Blog\Controllers\Nest\BlogController:
   extensions:
     - {{ namespace_root_extensions }}BlogControllerExtension

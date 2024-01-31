@@ -69,7 +69,9 @@ class BlogSetCommand extends GeneratorCommand
         $input = new ArrayInput(['name' => 'component-blog']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('vendor:component-blog:templates');
+        $command = $this->getApplication()->find(
+            'vendor:component-blog:templates',
+        );
         $input = new ArrayInput([]);
         $command->run($input, $output);
 

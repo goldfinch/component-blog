@@ -1,0 +1,11 @@
+---
+Name: goldfinch-component-blog-mill
+After: "goldfinch/mill"
+---
+Goldfinch\Mill\Mill:
+  millable:
+    Goldfinch\Component\Blog\Mills\BlogMill: Goldfinch\Component\Blog\Pages\Nest\Blog
+    Goldfinch\Component\Blog\Mills\BlogByCategoryMill: Goldfinch\Component\Blog\Pages\Nest\BlogByCategory
+    Goldfinch\Component\Blog\Mills\BlogCategoryMill: Goldfinch\Component\Blog\Models\Nest\BlogCategory
+    Goldfinch\Component\Blog\Mills\BlogTagMill: Goldfinch\Component\Blog\Models\Nest\BlogTag
+    Goldfinch\Component\Blog\Mills\BlogItemMill: Goldfinch\Component\Blog\Models\Nest\BlogItem

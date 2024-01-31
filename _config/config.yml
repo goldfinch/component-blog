@@ -15,5 +15,8 @@ Goldfinch\Component\Blog\Admin\BlogAdmin:
 Goldfinch\Component\Blog\Pages\Nest\Blog:
   icon_class: "bi-newspaper"
 
+Goldfinch\Component\Blog\Pages\Nest\BlogByCategory:
+  icon_class: "bi-inboxes"
+
 Goldfinch\Component\Blog\Blocks\BlogBlock:
   icon: "bi-newspaper"

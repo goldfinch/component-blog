@@ -1,0 +1,7 @@
+---
+Name: goldfinch-component-blog-harvest
+After: "goldfinch/harvest"
+---
+Goldfinch\Harvest\Harvest:
+  harvesters:
+    blog: Goldfinch\Component\Blog\Harvest\BlogHarvest

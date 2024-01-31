@@ -22,7 +22,8 @@
             <% end_loop %>
           </select>
         </div>
-        <% end_if %> <% if Tags %>
+        <% end_if %>
+        <% if Tags %>
         <div class="mb-3">
           <select class="form-select" aria-label="Blog Tags">
             <option selected>-</option>

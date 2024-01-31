@@ -3,12 +3,13 @@
 namespace Goldfinch\Component\Blog\Models\Nest;
 
 use Goldfinch\Fielder\Fielder;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Fielder\Traits\FielderTrait;
 
 class BlogTag extends NestedObject
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     public static $nest_up = null;
     public static $nest_up_children = [];

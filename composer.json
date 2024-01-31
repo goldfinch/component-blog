@@ -16,6 +16,7 @@
         "silverstripe/admin": "^2.0",
         "goldfinch/taz": "^1.0",
         "goldfinch/fielder": "^1.0",
+        "goldfinch/loadable": "^1.0",
         "goldfinch/helpers": "^1.0",
         "goldfinch/image-editor": "^1.0",
         "goldfinch/nest": "^1.0",

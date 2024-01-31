@@ -1,0 +1,20 @@
+---
+Name: goldfinch-component-blog-loadable
+After: "goldfinch/loadable"
+---
+Goldfinch\Loadable\Loadable:
+  loadable:
+    Goldfinch\Component\Blog\Models\Nest\BlogItem:
+      initial_loaded: 10
+      per_each_load: 10
+    Goldfinch\Component\Blog\Models\Nest\BlogCategory:
+      initial_loaded: 10
+      per_each_load: 10
+
+Goldfinch\Component\Blog\Models\Nest\BlogItem:
+  extensions:
+    - Goldfinch\Loadable\Extensions\LoadableExtension
+
+Goldfinch\Component\Blog\Models\Nest\BlogCategory:
+  extensions:
+    - Goldfinch\Loadable\Extensions\LoadableExtension

@@ -1,6 +1,6 @@
 <h1>$Title</h1>
-<% include Goldfinch/Component/Blog/Partials/BlogFilter %>
+<% include Goldfinch/Nest/Partials/Filter %>
 <%-- To display paginated list: --%>
 <% include Goldfinch/Nest/Partials/List %>
 <%-- To display loadable list: --%>
-<%-- $Loadable(Goldfinch\Component\Blog\Models\Nest\BlogItem) --%>
+<%-- $Loadable(Goldfinch\Component\Blog\Models\Nest\BlogCategory) --%>
