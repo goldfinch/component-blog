@@ -31,11 +31,15 @@ class BlogConfig extends DataObject implements TemplateGlobalProvider
         ]);
 
         $fielder->validate(['ItemsPerPage' => function($value, $fail) {
-            $value = (int) $value;
-            $min = 1;
-            $max = 100;
-            if (!$value || $value < $min || $value > $max) {
-                $fail('The :attribute must be between '.$min.' and '.$max.'.');
+            if (!$this->ID && $value == null) {
+                // Skip this validation on config creation as it can be created without user interaction. A default value assigned through db for `ItemsPerPage` will cover it here
+            } else {
+                $value = (int) $value;
+                $min = 1;
+                $max = 100;
+                if (!$value || $value < $min || $value > $max) {
+                    $fail('The :attribute must be between '.$min.' and '.$max.'.');
+                }
             }
         }]);
     }

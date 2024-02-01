@@ -3,7 +3,9 @@
 namespace Goldfinch\Component\Blog\Harvest;
 
 use Goldfinch\Harvest\Harvest;
+use Goldfinch\Blocks\Pages\Blocks;
 use Goldfinch\Component\Blog\Pages\Nest\Blog;
+use Goldfinch\Component\Blog\Blocks\BlogBlock;
 use Goldfinch\Component\Blog\Models\Nest\BlogTag;
 use Goldfinch\Component\Blog\Models\Nest\BlogItem;
 use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
@@ -40,5 +42,19 @@ class BlogHarvest extends Harvest
                 $item->Tags()->add($tag);
             }
         });
+
+        // add one block to Blocks demo page (if it's exists)
+        if (class_exists(Blocks::class)) {
+            $demoBlocks = Blocks::get()->filter('Title', 'Blocks')->first();
+
+            if ($demoBlocks && $demoBlocks->exists() && $demoBlocks->ElementalArea()->exists()) {
+                BlogBlock::mill(1)->make([
+                    'ClassName' => $demoBlocks->ClassName,
+                    'TopPageID' => $demoBlocks->ID,
+                    'ParentID' => $demoBlocks->ElementalArea()->ID,
+                    'Title' => 'Blog',
+                ]);
+            }
+        }
     }
 }

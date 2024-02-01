@@ -3,6 +3,7 @@
 namespace Goldfinch\Component\Blog\Blocks;
 
 use Goldfinch\Fielder\Fielder;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\Blog\Models\Nest\BlogTag;
@@ -11,7 +12,7 @@ use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
 
 class BlogBlock extends BaseElement
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     private static $table_name = 'BlogBlock';
     private static $singular_name = 'Blog';

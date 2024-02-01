@@ -9,3 +9,4 @@ Goldfinch\Mill\Mill:
     Goldfinch\Component\Blog\Mills\BlogCategoryMill: Goldfinch\Component\Blog\Models\Nest\BlogCategory
     Goldfinch\Component\Blog\Mills\BlogTagMill: Goldfinch\Component\Blog\Models\Nest\BlogTag
     Goldfinch\Component\Blog\Mills\BlogItemMill: Goldfinch\Component\Blog\Models\Nest\BlogItem
+    Goldfinch\Component\Blog\Mills\BlogBlockMill: Goldfinch\Component\Blog\Blocks\BlogBlock
