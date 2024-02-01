@@ -9,7 +9,7 @@ class BlogTagMill extends Mill
     public function factory(): array
     {
         return [
-            'Title' => $this->faker->sentence(2),
+            'Title' => $this->faker->catchPhrase(),
         ];
     }
 }

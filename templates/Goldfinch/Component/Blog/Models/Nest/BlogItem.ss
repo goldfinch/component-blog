@@ -6,11 +6,24 @@
     <% end_with %>
 <% end_if %>
 
-<% if Categories %>
-    <div>Categories:
-        <% loop Categories %><% if not IsFirst %>, <% end_if %><a href="{$Link}">$Title</a><% end_loop %>
-    </div>
+<% if not BlogConfig.DisabledCategories %>
+  <% if Categories %>
+      <div>Categories:
+          <% loop Categories %><% if not IsFirst %>, <% end_if %><a href="{$Link}">$Title</a><% end_loop %>
+      </div>
+  <% end_if %>
 <% end_if %>
+
+<% if not BlogConfig.DisabledTags %>
+  <% if Tags %>
+      <div>Tags:
+          <% loop Tags %><% if not IsFirst %>, <% end_if %><a href="{$Link($Up.Parent.Link)}">$Title</a><% end_loop %>
+      </div>
+  <% end_if %>
+<% end_if %>
+
+<div>Date: $DateForHuman ($Date.Ago)</div>
+<div>Publisher: $Publisher</div>
 
 <div style="margin: 1rem 0">$Content</div>
 

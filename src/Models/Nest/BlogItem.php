@@ -33,7 +33,7 @@ class BlogItem extends NestedObject
         'Summary' => 'Text',
         'Content' => 'HTMLText',
         'Date' => 'Datetime',
-        'Author' => 'Varchar',
+        'Publisher' => 'Varchar',
     ];
 
     private static $many_many = [
@@ -57,12 +57,48 @@ class BlogItem extends NestedObject
     private static $owns = ['Image', 'Categories', 'Tags'];
 
     private static $summary_fields = [
-        'Image.CMSThumbnail' => 'Image',
+        // 'DateForHuman' => 'Date', // unsortable
+        'Date' => 'Date', // sortable
+        'Categories.Count' => 'Categories',
+        'Tags.Count' => 'Tags',
     ];
 
-    private static $searchableListFields = [
+    private static $searchable_list_fields = [
         'Title', 'Summary', 'Content',
     ];
+
+    private static $default_sort = 'Date DESC, Created DESC';
+
+    public function GridItemSummaryList()
+    {
+        $list = parent::GridItemSummaryList();
+
+        $list['Image'] = $this->Image()->CMSThumbnail();
+        $list['Date'] = $this->DateForHuman() . ' <span style="font-style: italic">(' . $this->dbObject('Date')->Ago() . ')</span>';
+
+        if ($this->Publisher) {
+            $list['Publisher'] = $this->Publisher;
+        }
+
+        return $list;
+    }
+
+    public function summaryFields()
+    {
+        $fields = parent::summaryFields();
+
+        $cfg = BlogConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            unset($fields['Categories.Count']);
+        }
+
+        if ($cfg->DisabledTags) {
+            unset($fields['Tags.Count']);
+        }
+
+        return $fields;
+    }
 
     public function fielder(Fielder $fielder): void
     {
@@ -72,7 +108,7 @@ class BlogItem extends NestedObject
             'Root.Main' => [
                 $fielder->string('Title'),
                 $fielder->datetime('Date', 'Date', $this->Date ?? date('Y-m-d H:i:s')),
-                $fielder->string('Author'),
+                $fielder->string('Publisher'),
                 $fielder->text('Summary'),
                 $fielder->html('Content'),
                 $fielder->tag('Categories'),
@@ -126,6 +162,11 @@ class BlogItem extends NestedObject
             $admin->getCMSEditLinkForManagedDataObject($this);
     }
 
+    public function DateForHuman()
+    {
+        return $this->Date ? $this->dbObject('Date')->Format("d MMMM YYYY, HH:mm") : null;
+    }
+
     /**
      * Extend nested listExtraFilter by adding additional filter option (category)
      */
@@ -133,11 +174,20 @@ class BlogItem extends NestedObject
     {
         $list = parent::listExtraFilter($list, $request);
 
+        $filter = [];
+
         if ($request->getVar('category'))
         {
-            $list = $list->filter([
-                'Categories.URLSegment' => $request->getVar('category'),
-            ]);
+            $filter['Categories.URLSegment'] = $request->getVar('category');
+        }
+
+        if ($request->getVar('tag'))
+        {
+            $filter['Tags.URLSegment'] = $request->getVar('tag');
+        }
+
+        if (count($filter)) {
+            $list = $list->filter($filter);
         }
 
         return $list;
@@ -152,11 +202,20 @@ class BlogItem extends NestedObject
 
         if ($data && !empty($data))
         {
+            $filter = [];
+
             if (isset($data['urlparams']['category']) && $data['urlparams']['category']) {
 
-                $list = $list->filter([
-                    'Categories.URLSegment' => $data['urlparams']['category'],
-                ]);
+                $filter['Categories.URLSegment'] = $data['urlparams']['category'];
+            }
+
+            if (isset($data['urlparams']['tag']) && $data['urlparams']['tag']) {
+
+                $filter['Tags.URLSegment'] = $data['urlparams']['tag'];
+            }
+
+            if (count($filter)) {
+                $list = $list->filter($filter);
             }
         }
 

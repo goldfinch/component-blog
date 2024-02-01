@@ -29,6 +29,10 @@ class BlogCategory extends NestedObject
         'Items' => BlogItem::class,
     ];
 
+    private static $summary_fields = [
+        'Items.Count' => 'Articles',
+    ];
+
     public function fielder(Fielder $fielder): void
     {
         $fielder->require(['Title']);

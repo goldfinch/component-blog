@@ -9,7 +9,7 @@ class BlogCategoryMill extends Mill
     public function factory(): array
     {
         return [
-            'Title' => $this->faker->sentence(5),
+            'Title' => $this->faker->catchPhrase(),
         ];
     }
 }

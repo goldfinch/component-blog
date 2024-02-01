@@ -6,6 +6,7 @@ use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Pages\Nest;
 use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
+use Goldfinch\Component\Blog\Models\Nest\BlogTag;
 use Goldfinch\Component\Blog\Models\Nest\BlogItem;
 use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
 use Goldfinch\Component\Blog\Pages\Nest\BlogByCategory;
@@ -48,5 +49,10 @@ class Blog extends Nest
     public function Categories()
     {
         return BlogCategory::get();
+    }
+
+    public function Tags()
+    {
+        return BlogTag::get();
     }
 }
