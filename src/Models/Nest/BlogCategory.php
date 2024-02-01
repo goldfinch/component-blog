@@ -8,6 +8,7 @@ use SilverStripe\ORM\PaginatedList;
 use SilverStripe\Control\Controller;
 use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Fielder\Traits\FielderTrait;
+use Goldfinch\Component\Blog\Configs\BlogConfig;
 use Goldfinch\Component\Blog\Pages\Nest\BlogByCategory;
 
 class BlogCategory extends NestedObject
@@ -52,7 +53,9 @@ class BlogCategory extends NestedObject
         if (Controller::has_curr()) {
             $ctrl = Controller::curr();
 
-            return PaginatedList::create($this->Items(), $ctrl->getRequest()); // ->setPageLength(10);
+            $cfg = BlogConfig::current_config();
+
+            return PaginatedList::create($this->Items(), $ctrl->getRequest())->setPageLength($cfg->ItemsPerPage ?? 10);
         }
     }
 

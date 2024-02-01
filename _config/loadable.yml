@@ -5,11 +5,21 @@ After: "goldfinch/loadable"
 Goldfinch\Loadable\Loadable:
   loadable:
     Goldfinch\Component\Blog\Models\Nest\BlogItem:
-      initial_loaded: 10
-      per_each_load: 10
+      # initial_loaded: 10
+      # per_each_load: 10
+      dbconfig:
+        Goldfinch\Component\Blog\Configs\BlogConfig:
+          initial_loaded: ItemsPerPage
+          per_each_load: ItemsPerPage
+      bridge:
+        Goldfinch\Component\Blog\Models\Nest\BlogCategory: List
     Goldfinch\Component\Blog\Models\Nest\BlogCategory:
-      initial_loaded: 10
-      per_each_load: 10
+      # initial_loaded: 10
+      # per_each_load: 10
+      dbconfig:
+        Goldfinch\Component\Blog\Configs\BlogConfig:
+          initial_loaded: ItemsPerPage
+          per_each_load: ItemsPerPage
 
 Goldfinch\Component\Blog\Models\Nest\BlogItem:
   extensions:

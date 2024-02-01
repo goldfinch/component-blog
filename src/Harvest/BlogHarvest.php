@@ -28,7 +28,7 @@ class BlogHarvest extends Harvest
 
         BlogTag::mill(5)->make();
 
-        BlogItem::mill(20)->make()->each(function($item) {
+        BlogItem::mill(30)->make()->each(function($item) {
             $categories = BlogCategory::get()->shuffle()->limit(rand(0,4));
             $tags = BlogTag::get()->shuffle()->limit(rand(0,6));
 

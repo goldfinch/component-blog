@@ -15,6 +15,7 @@ class BlogConfig extends DataObject implements TemplateGlobalProvider
     private static $table_name = 'BlogConfig';
 
     private static $db = [
+        'ItemsPerPage' => 'Int(10)',
         'DisabledCategories' => 'Boolean',
         'DisabledTags' => 'Boolean',
     ];
@@ -23,9 +24,19 @@ class BlogConfig extends DataObject implements TemplateGlobalProvider
     {
         $fielder->fields([
             'Root.Main' => [
+                $fielder->string('ItemsPerPage', 'Items per page')->setDescription('used in paginated/loadable list'),
                 $fielder->checkbox('DisabledCategories', 'Disabled categories'),
                 $fielder->checkbox('DisabledTags', 'Disabled tags'),
             ],
         ]);
+
+        $fielder->validate(['ItemsPerPage' => function($value, $fail) {
+            $value = (int) $value;
+            $min = 1;
+            $max = 100;
+            if (!$value || $value < $min || $value > $max) {
+                $fail('The :attribute must be between '.$min.' and '.$max.'.');
+            }
+        }]);
     }
 }

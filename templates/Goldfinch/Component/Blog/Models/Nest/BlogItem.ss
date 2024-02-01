@@ -27,7 +27,7 @@
 
 <div style="margin: 1rem 0">$Content</div>
 
-<div style="display: flex">
+<div style="display: flex; width: 100%; padding-top: 20px">
     <div style="width: 50%">
 
         <% if PreviousItem %>
