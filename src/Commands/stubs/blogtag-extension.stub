@@ -12,4 +12,9 @@ class {{ class }}Extension extends DataExtension
         // $fielder->require([]);
         // $fielder->freshFields(['Root.Main' => []]);
     }
+
+    public function updateGridItemSummaryList(&$list)
+    {
+        // ..
+    }
 }

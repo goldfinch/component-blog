@@ -37,9 +37,11 @@ class BlogByCategory extends Nest
 
     public function fielderSettings(Fielder $fielder): void
     {
-        $fielder->removeFieldsInTab('Root.Search');
-        $fielder->removeFieldsInTab('Root.General');
-        $fielder->removeFieldsInTab('Root.SEO');
+        if ($this->NestedPseudo) {
+            $fielder->removeFieldsInTab('Root.Search');
+            $fielder->removeFieldsInTab('Root.General');
+            $fielder->removeFieldsInTab('Root.SEO');
+        }
 
         $fielder->disable(['NestedObject']); // NestedPseudo
     }
