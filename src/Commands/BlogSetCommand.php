@@ -17,63 +17,35 @@ class BlogSetCommand extends GeneratorCommand
 
     protected function execute($input, $output): int
     {
-        $command = $this->getApplication()->find(
-            'vendor:component-blog:ext:admin',
-        );
-        $input = new ArrayInput(['name' => 'BlogAdmin']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-blog:ext:admin');
+        $command->run(new ArrayInput(['name' => 'BlogAdmin']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-blog:ext:config',
-        );
-        $input = new ArrayInput(['name' => 'BlogConfig']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-blog:ext:config');
+        $command->run(new ArrayInput(['name' => 'BlogConfig']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-blog:ext:block',
-        );
-        $input = new ArrayInput(['name' => 'BlogBlock']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-blog:ext:block');
+        $command->run(new ArrayInput(['name' => 'BlogBlock']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-blog:ext:page',
-        );
-        $input = new ArrayInput(['name' => 'Blog']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-blog:ext:page');
+        $command->run(new ArrayInput(['name' => 'Blog']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-blog:ext:controller',
-        );
-        $input = new ArrayInput(['name' => 'BlogController']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-blog:ext:controller');
+        $command->run(new ArrayInput(['name' => 'BlogController']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-blog:ext:item',
-        );
-        $input = new ArrayInput(['name' => 'BlogItem']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-blog:ext:item');
+        $command->run(new ArrayInput(['name' => 'BlogItem']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-blog:ext:category',
-        );
-        $input = new ArrayInput(['name' => 'BlogCategory']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-blog:ext:category');
+        $command->run(new ArrayInput(['name' => 'BlogCategory']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-blog:ext:tag',
-        );
-        $input = new ArrayInput(['name' => 'BlogTag']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-blog:ext:tag');
+        $command->run(new ArrayInput(['name' => 'BlogTag']), $output);
 
         $command = $this->getApplication()->find('vendor:component-blog:config');
-        $input = new ArrayInput(['name' => 'component-blog']);
-        $command->run($input, $output);
+        $command->run(new ArrayInput(['name' => 'component-blog']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-blog:templates',
-        );
-        $input = new ArrayInput([]);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-blog:templates');
+        $command->run(new ArrayInput([]), $output);
 
         return Command::SUCCESS;
     }
