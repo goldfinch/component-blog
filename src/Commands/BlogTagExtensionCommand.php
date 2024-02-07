@@ -17,5 +17,5 @@ class BlogTagExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/blogtag-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }

@@ -17,5 +17,5 @@ class BlogExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/blog-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }
