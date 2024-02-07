@@ -3,7 +3,6 @@
 namespace Goldfinch\Component\Blog\Commands;
 
 use Goldfinch\Taz\Console\GeneratorCommand;
-use Symfony\Component\Console\Command\Command;
 
 #[AsCommand(name: 'vendor:component-blog:ext:config')]
 class BlogConfigExtensionCommand extends GeneratorCommand
@@ -19,11 +18,4 @@ class BlogConfigExtensionCommand extends GeneratorCommand
     protected $stub = './stubs/blogconfig-extension.stub';
 
     protected $prefix = 'Extension';
-
-    protected function execute($input, $output): int
-    {
-        parent::execute($input, $output);
-
-        return Command::SUCCESS;
-    }
 }

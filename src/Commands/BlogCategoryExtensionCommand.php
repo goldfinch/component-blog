@@ -3,7 +3,6 @@
 namespace Goldfinch\Component\Blog\Commands;
 
 use Goldfinch\Taz\Console\GeneratorCommand;
-use Symfony\Component\Console\Command\Command;
 
 #[AsCommand(name: 'vendor:component-blog:ext:category')]
 class BlogCategoryExtensionCommand extends GeneratorCommand
@@ -19,11 +18,4 @@ class BlogCategoryExtensionCommand extends GeneratorCommand
     protected $stub = './stubs/blogcategory-extension.stub';
 
     protected $prefix = 'Extension';
-
-    protected function execute($input, $output): int
-    {
-        parent::execute($input, $output);
-
-        return Command::SUCCESS;
-    }
 }
