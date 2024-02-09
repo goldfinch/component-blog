@@ -2,12 +2,12 @@
 
 namespace Goldfinch\Component\Blog\Blocks;
 
-use Goldfinch\Blocks\Models\BlockElement;
+use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\Blog\Models\Nest\BlogTag;
 use Goldfinch\Component\Blog\Models\Nest\BlogItem;
 use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
 
-class BlogBlock extends BlockElement
+class BlogBlock extends BaseElement
 {
     private static $table_name = 'BlogBlock';
     private static $singular_name = 'Blog';
@@ -16,7 +16,7 @@ class BlogBlock extends BlockElement
     private static $db = [];
 
     private static $inline_editable = false;
-    private static $description = '';
+    private static $description = 'Blog block handler';
     private static $icon = 'font-icon-news';
 
     public function Items()

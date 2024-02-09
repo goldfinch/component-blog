@@ -4,6 +4,10 @@ Name: goldfinch-component-blog
 Goldfinch\Component\Blog\Admin\BlogAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
+
+Goldfinch\Component\Blog\Blocks\BlogBlock:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BaseElementExtension
 ---
 Name: goldfinch-component-blog-icon
 Only:

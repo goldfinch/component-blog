@@ -21,7 +21,6 @@
         "goldfinch/image-editor": "^1.0",
         "goldfinch/nest": "^1.0",
         "goldfinch/date": "^1.0",
-        "goldfinch/blocks": "^1.0",
         "silverstripe/tagfield": "^3.0",
         "jonom/silverstripe-someconfig": "^1.0"
     },
