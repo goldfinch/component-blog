@@ -3,12 +3,15 @@
 namespace Goldfinch\Component\Blog\Blocks;
 
 use DNADesign\Elemental\Models\BaseElement;
+use Goldfinch\Helpers\Traits\BaseElementTrait;
 use Goldfinch\Component\Blog\Models\Nest\BlogTag;
 use Goldfinch\Component\Blog\Models\Nest\BlogItem;
 use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
 
 class BlogBlock extends BaseElement
 {
+    use BaseElementTrait;
+
     private static $table_name = 'BlogBlock';
     private static $singular_name = 'Blog';
     private static $plural_name = 'Blog';
