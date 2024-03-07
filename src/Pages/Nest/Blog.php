@@ -2,10 +2,8 @@
 
 namespace Goldfinch\Component\Blog\Pages\Nest;
 
-use Goldfinch\Fielder\Fielder;
 use Goldfinch\Nest\Pages\Nest;
 use Goldfinch\Mill\Traits\Millable;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Blog\Models\Nest\BlogTag;
 use Goldfinch\Component\Blog\Models\Nest\BlogItem;
 use Goldfinch\Component\Blog\Models\Nest\BlogCategory;
@@ -14,7 +12,7 @@ use Goldfinch\Component\Blog\Controllers\Nest\BlogController;
 
 class Blog extends Nest
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     private static $table_name = 'Blog';
 
@@ -28,14 +26,26 @@ class Blog extends Nest
         'NestedObject' => BlogItem::class,
     ];
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         // ..
+
+        return $fields;
     }
 
-    public function fielderSettings(Fielder $fielder): void
+    public function getSettingsFields()
     {
+        $fields = parent::getSettingsFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->disable(['NestedObject', 'NestedPseudo']);
+
+        return $fields;
     }
 
     protected function onBeforeWrite()

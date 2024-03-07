@@ -2,16 +2,14 @@
 
 namespace Goldfinch\Component\Blog\Models\Nest;
 
-use Goldfinch\Fielder\Fielder;
 use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use Goldfinch\Component\Blog\Pages\Nest\Blog;
 
 class BlogTag extends NestedObject
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -34,8 +32,12 @@ class BlogTag extends NestedObject
 
     private static $settings_tab = false;
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->required(['Title']);
 
         $fielder->fields([
@@ -44,6 +46,8 @@ class BlogTag extends NestedObject
                 $fielder->string('URLSegment')->setDescription('auto-generated based on title'),
             ],
         ]);
+
+        return $fields;
     }
 
     public function HTMLLink()

@@ -2,15 +2,13 @@
 
 namespace Goldfinch\Component\Blog\Configs;
 
-use Goldfinch\Fielder\Fielder;
 use JonoM\SomeConfig\SomeConfig;
 use SilverStripe\ORM\DataObject;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use SilverStripe\View\TemplateGlobalProvider;
 
 class BlogConfig extends DataObject implements TemplateGlobalProvider
 {
-    use SomeConfig, FielderTrait;
+    use SomeConfig;
 
     private static $table_name = 'BlogConfig';
 
@@ -20,8 +18,12 @@ class BlogConfig extends DataObject implements TemplateGlobalProvider
         'DisabledTags' => 'Boolean',
     ];
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->fields([
             'Root.Main' => [
                 $fielder->string('ItemsPerPage', 'Items per page')->setDescription('used in paginated/loadable list'),
@@ -42,5 +44,7 @@ class BlogConfig extends DataObject implements TemplateGlobalProvider
                 }
             }
         }]);
+
+        return $fields;
     }
 }

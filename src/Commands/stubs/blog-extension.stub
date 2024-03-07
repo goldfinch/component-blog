@@ -1,6 +1,5 @@
 <?php
 {{ namespace }}
-use Goldfinch\Fielder\Fielder;
 use SilverStripe\Core\Extension;
 
 class {{ class }}Extension extends Extension
@@ -9,13 +8,17 @@ class {{ class }}Extension extends Extension
 
     private static $db = [];
 
-    public function updateFielder(Fielder $fielder): void
+    public function updateCMSFields($fields)
     {
+        $fielder = $fields->fielder($this);
+
         // ..
     }
 
-    public function updateFielderSettings(Fielder $fielder): void
+    public function updateSettingsFields($fields)
     {
+        $fielder = $fields->fielder($this);
+
         // ..
     }
 }
