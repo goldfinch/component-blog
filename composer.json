@@ -17,7 +17,7 @@
         "goldfinch/taz": "^2.0",
         "goldfinch/harvest": "^2.0",
         "goldfinch/mill": "^2.0",
-        "goldfinch/fielder": "^1.0",
+        "goldfinch/fielder": "^2.0",
         "goldfinch/loadable": "^2.0",
         "goldfinch/helpers": "^2.0",
         "goldfinch/image-editor": "^2.0",
