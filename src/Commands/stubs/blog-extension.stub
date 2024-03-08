@@ -10,14 +10,14 @@ class {{ class }}Extension extends Extension
 
     public function updateCMSFields($fields)
     {
-        $fielder = $fields->fielder($this);
+        $fielder = $this->owner->intFielder($fields)->getFielder();
 
         // ..
     }
 
     public function updateSettingsFields($fields)
     {
-        $fielder = $fields->fielder($this);
+        $fielder = $this->owner->intFielder($fields)->getFielder();
 
         // ..
     }
