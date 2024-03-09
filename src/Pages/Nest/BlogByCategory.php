@@ -25,9 +25,9 @@ class BlogByCategory extends Nest
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
+        $fields = parent::getCMSFields()->initFielder($this);
 
-        $fielder = $this->intFielder($fields)->getFielder();
+        $fielder = $fields->getFielder();
 
         $fielder->remove([
             'Content',
@@ -41,9 +41,9 @@ class BlogByCategory extends Nest
 
     public function getSettingsFields()
     {
-        $fields = parent::getSettingsFields();
+        $fields = parent::getSettingsFields()->initFielder($this);
 
-        $fielder = $this->intFielder($fields)->getFielder();
+        $fielder = $fields->getFielder();
 
         if ($this->NestedPseudo) {
             $fielder->removeFieldsInTab('Root.Search');

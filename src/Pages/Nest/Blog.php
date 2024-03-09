@@ -28,9 +28,9 @@ class Blog extends Nest
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
+        $fields = parent::getCMSFields()->initFielder($this);
 
-        $fielder = $this->intFielder($fields)->getFielder();
+        $fielder = $fields->getFielder();
 
         // ..
 
@@ -39,9 +39,9 @@ class Blog extends Nest
 
     public function getSettingsFields()
     {
-        $fields = parent::getSettingsFields();
+        $fields = parent::getSettingsFields()->initFielder($this);
 
-        $fielder = $this->intFielder($fields)->getFielder();
+        $fielder = $fields->getFielder();
 
         $fielder->disable(['NestedObject', 'NestedPseudo']);
 
