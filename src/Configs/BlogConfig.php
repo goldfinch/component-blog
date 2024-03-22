@@ -48,6 +48,8 @@ class BlogConfig extends DataObject implements TemplateGlobalProvider
             }]);
         }
 
+        $this->extend('updateCMSFields', $fields);
+
         return $fields;
     }
 }

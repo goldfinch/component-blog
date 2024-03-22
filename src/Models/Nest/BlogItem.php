@@ -131,6 +131,8 @@ class BlogItem extends NestedObject
             $fielder->remove('Tags');
         }
 
+        $this->extend('updateCMSFields', $fields);
+
         return $fields;
     }
 
