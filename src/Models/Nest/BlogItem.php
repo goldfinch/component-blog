@@ -227,4 +227,9 @@ class BlogItem extends NestedObject
 
         return $list;
     }
+
+    public function Author()
+    {
+        return $this->Publisher;
+    }
 }
